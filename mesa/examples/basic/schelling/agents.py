@@ -21,11 +21,11 @@ class SchellingAgent(Agent):
         )
 
         # Count similar neighbors
-        similarBooleanList = [neighbor.type == self.type for neighbor in neighbors]
-        similar = sum(similarBooleanList)
+        similarbooleanlist = [neighbor.type == self.type for neighbor in neighbors]
+        similar = sum(similarbooleanlist)
 
         # Count total neighbors
-        total_neighbors = len(similarBooleanList)
+        total_neighbors = len(similarbooleanlist)
 
         # If unhappy, move to a random empty cell:
         if (
