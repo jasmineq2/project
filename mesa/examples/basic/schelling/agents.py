@@ -21,9 +21,11 @@ class SchellingAgent(Agent):
         )
 
         # Count similar neighbors
-        similar = sum(neighbor.type == self.type for neighbor in neighbors)
-        # Count total neighbors
-        total_neighbors = len(self.model.grid.get_neighbors(self.pos, moore=True))
+        similarBooleanList=[neighbor.type == self.type for neighbor in neighbors]
+        similar = sum(similarBooleanList)
+
+        # Count total neighbors 
+        total_neighbors=len(similarBooleanList)
 
         # If unhappy, move to a random empty cell:
         if (
