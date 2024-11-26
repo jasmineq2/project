@@ -22,11 +22,14 @@ class SchellingAgent(Agent):
 
         # Count similar neighbors
         similar = sum(neighbor.type == self.type for neighbor in neighbors)
-        # Count total neighbors 
-        total_neighbors=len(self.model.grid.get_neighbors(self.pos,moore=True))
-        
+        # Count total neighbors
+        total_neighbors = len(self.model.grid.get_neighbors(self.pos, moore=True))
+
         # If unhappy, move to a random empty cell:
-        if total_neighbors!=0 and similar/total_neighbors < self.model.homophily_ratio:
+        if (
+            total_neighbors != 0
+            and similar / total_neighbors < self.model.homophily_ratio
+        ):
             self.model.grid.move_to_empty(self)
         else:
             self.model.happy += 1
