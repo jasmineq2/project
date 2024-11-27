@@ -21,7 +21,7 @@ class SchellingAgent(Agent):
         )
 
         neighborsboolean = [neighbor.type == self.type for neighbor in neighbors]
-        
+
         # Count similar neighbors
         similar = sum(neighborsboolean)
 
