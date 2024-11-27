@@ -20,13 +20,13 @@ class SchellingAgent(Agent):
             self.pos, moore=True, radius=self.model.radius
         )
 
-        neighborsboolean = [neighbor.type == self.type for neighbor in neighbors]
+        type_of_neighbors = [neighbor.type == self.type for neighbor in neighbors]
 
         # Count similar neighbors
-        similar = sum(neighborsboolean)
+        similar = sum(type_of_neighbors)
 
         # Count total neighbors
-        total_neighbors = len(neighborsboolean)
+        total_neighbors = len(type_of_neighbors)
 
         # If unhappy, move to a random empty cell:
         if (
